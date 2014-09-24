@@ -72,7 +72,7 @@
   }
 }
 
-body {
+body, iframe {
   background-color: #ccc;
   background-image: url(../img/bg.png);
   background-attachment: fixed;
@@ -90,4 +90,8 @@ body {
   font-size: 16px;
   font-weight: 300;
   font-family: 'sans serif';
+}
+
+.no-formattribute body, .no-formattribute iframe {
+  background-color: red;
 }

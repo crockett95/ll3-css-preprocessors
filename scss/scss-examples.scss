@@ -109,3 +109,11 @@ body {
         family: 'sans serif';  
     }  
 }
+
+.no-formattribute body {
+	background-color: red;
+}
+
+iframe {
+	@extend body;
+}
