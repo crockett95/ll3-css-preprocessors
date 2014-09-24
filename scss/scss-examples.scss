@@ -33,3 +33,13 @@ $light-blue: $nice-blue + #111;
 .button-rounded {  
     @include border-radius();  
 }
+
+#header {  
+    color: black;  
+    .navigation {  
+        font-size: 12px;  
+    }  
+    .logo {  
+        width: 300px;  
+    }  
+}

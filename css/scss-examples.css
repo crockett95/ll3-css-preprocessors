@@ -25,3 +25,13 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
