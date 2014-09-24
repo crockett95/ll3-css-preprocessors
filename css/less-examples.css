@@ -13,3 +13,15 @@
   border-top: dotted 1px black;
   border-bottom: solid 2px black;
 }
+
+#header {
+  color: black;
+}
+
+#header .navigation {
+  font-size: 12px;
+}
+
+#header .logo {
+  width: 300px;
+}
