@@ -1,0 +1,953 @@
+Before We Begin
+===============
+
+Last Week
+---------
+
+-   Questions about DevTools or Discover DevTools course
+
+-   Questions about WAMP and Local Development
+
+CSS Preprocessors
+=================
+
+Topics
+------
+
+-   Prepros
+
+-   CSS Preprocessors
+
+    -   LESS
+
+    -   Sass/SCSS
+
+Prepros
+=======
+
+-   Preprocessing
+
+    -   CSS: LESS, Sass/SCSS, Stylus
+
+    -   JS: Coffeescript, LiveScript
+
+    -   HTML: Haml, Markdown, Jade, Slim
+
+-   JS Concatenation
+
+-   Image Optimization
+
+What is *preprocessing*?
+------------------------
+
+>   In computer science, a **preprocessor** is a program that processes its input data to produce output that is *used as input* to another program. The output is said to be a **preprocessed** form of the input data, which is often used by some subsequent programs like compilers.
+
+TLDR: It's taking one set of code and using to make a different set of code;
+
+Why use *preprocessing*?
+------------------------
+
+It allows for simpler, more efficient, and/or more maintainable code.
+
+What does Prepros do and how do I use it?
+-----------------------------------------
+
+1.  Load a project folder into the app
+
+2.  Set file settings (and project settings)
+
+3.  Prepros will watch files in your project folder for changes
+
+4.  If one changes, it recompiles the output
+
+Learn More
+----------
+
+Download [Prepros][1]
+
+[1]: <http://alphapixels.com/prepros/>
+
+Read the [Docs][2]
+
+[2]: <http://alphapixels.com/prepros/docs/>
+
+CSS Preprocessors
+=================
+
+Why use a CSS Preprocessor?
+---------------------------
+
+CSS becomes easier to write and to maintain:
+
+-   Variables
+
+-   Logic & Math
+
+-   Functions
+
+-   Nesting
+
+-   Mixins
+
+LESS
+====
+
+Advantages of LESS
+------------------
+
+-   Superset of CSS - All CSS is valid
+
+-   Familiar syntax
+
+-   Broad support
+
+-   Can compile client-side
+
+Disadvantages of LESS
+---------------------
+
+-   Shallow extensions of style rules
+
+-   Slightly confusing syntax
+
+Writing LESS: Variables
+-----------------------
+
+A variable is declared like a simple CSS rule, but outside of any blocks. Variable names are of the form `@name`.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+    color: @light-blue;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS Output:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: #6c94be;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Mixins
+--------------------
+
+To include a class as a mixin, simply include it in the styles.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#menu a {
+    color: #111;
+    .bordered;
+} 
+
+.post a {
+    color: red;
+    .bordered;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: More Mixins
+-------------------------
+
+Adding parentheses after a mixin name keeps the mixin from being declared as its own class, (e.g. `.mixin-name()`).
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.bordered() {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#menu a {
+    color: #111;
+    .bordered;
+} 
+
+.post a {
+    color: red;
+    .bordered;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Mixins with Parameters
+------------------------------------
+
+Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.border-radius(@radius: 5px) { 
+    -webkit-border-radius: @radius; 
+       -moz-border-radius: @radius; 
+            border-radius: @radius; 
+}
+
+.button {
+    .border-radius(2px);
+}
+.button-rounded {
+    .border-radius();
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.button {   
+    -webkit-border-radius: 2px;   
+       -moz-border-radius: 2px;   
+            border-radius: 2px; 
+} 
+.button-rounded {   
+    -webkit-border-radius: 5px;   
+       -moz-border-radius: 5px;   
+            border-radius: 5px; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Nesting Rules
+---------------------------
+
+Rules can be nested, with or without operators (`>`, `+`, etc).
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: black;
+    .navigation {
+        font-size: 12px;
+    }
+    .logo {
+        width: 300px;
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: black;
+}
+
+#header .navigation {
+    font-size: 12px;
+}
+
+#header .logo {
+    width: 300px;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Nesting with `&`
+------------------------------
+
+The ampersand (`&`) can be used to refer to the current selector parent.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.clearfix {
+    display: block;
+    zoom: 1;
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }   
+}
+
+.script-alert {
+    display: none;
+    .no-js & {
+        display: block;
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+}
+
+.script-alert {   
+    display: none; 
+}
+
+.no-js .script-alert {   
+    display: block; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Nesting Media Queries
+-----------------------------------
+
+Media queries may be nested.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.screencolor{ 
+    @media screen { 
+        color: green;
+        @media (min-width:768px) { 
+            color: red; 
+        } 
+    } 
+    @media tv { 
+        color: black; 
+    } 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@media screen {
+    .screencolor {
+        color: green;   
+    }
+}
+
+@media screen and (min-width: 768px) {   
+    .screencolor { 
+        color: red;   
+    } 
+}
+
+@media tv {   
+    .screencolor { 
+        color: black;   
+    } 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Operations
+------------------------
+
+LESS has support for math-like operations.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@num-grid-columns: 12;
+@grid-column-gutter: 30px;
+
+.row {
+    display: block;
+    .clearfix;
+    margin-left: -@grid-column-gutter / 2;
+    margin-right: -@grid-column-gutter / 2;
+    width: 100%;
+}
+
+.column(@num-columns: 1) {
+    margin: 0;
+    display: block;
+    float: left;
+    width: percentage(@num-columns / @num-grid-columns);
+    box-sizing: border-box;
+    padding-left: @grid-column-gutter / 2;
+    padding-right: @grid-column-gutter / 2;
+}
+
+.full-width {
+    .column(12);
+}
+.sidebar {
+    .column(2);
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS: 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.row {   
+    display: block;   
+    zoom: 1;   
+    margin-left: -15px;   
+    margin-right: -15px;
+    width: 100%;
+} 
+.row:after {   
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+} 
+.full-width {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 100%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+} 
+.sidebar {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 16.666666666666664%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Functions
+-----------------------
+
+Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.blue-button { 	
+    @blue-color: #005288; 	
+    color: white; 	
+    background-color: @blue-color; 	
+    &:hover { 		
+        background-color: desaturate(darken(@blue-color, 10%), 5%);
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.blue-button {   
+    color: white;   
+    background-color: #005288; 
+} 
+
+.blue-button:hover {   
+    background-color: #023353; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Importing other Files
+---------------------
+
+To import you can use `@import "filename"`. The extension `.less` is not necessary for less files.
+
+Unlike normal CSS imports, importing one LESS file into another compiles the files together.
+
+Client-side LESS
+----------------
+
+Less can be loaded in an HTML page with the `less.js` file, which will parse the files and append the CSS styles in a `<style></style>` block.
+
+In the `<head>` tag, just add:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="less.js" type="text/javascript"></script>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Learn More
+----------
+
+[LESS Website][1]
+
+[1]: <http://lesscss.org/#>
+
+Sass/SCSS
+=========
+
+Wait, there's two?
+------------------
+
+There are two different syntaxes for Sass, as well and two corresponding file extensions.
+
+### `.sass` 
+
+This is a whitespace-sensitive syntax, using tabs to set levels. It's being phased out, from what I can tell, but some people like it.
+
+### `.scss`
+
+This is a syntax that resembles CSS (and LESS). This is the one we'll be talking about
+
+Advantages of Sass
+------------------
+
+-   Superset of CSS - All CSS is valid
+
+-   Familiar syntax
+
+-   Broad support
+
+-   Deep extensions of styles
+
+Disadvantages of Sass
+---------------------
+
+-   Must be precompiled, no client-side implementation (not usually an issue)
+
+-   Compiler can be a bit slow
+
+Writing Sass: Variables
+-----------------------
+
+Variable names are of the form `$name`.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$nice-blue: #5B83AD;
+$light-blue: $nice-blue + #111;
+
+#header {
+    color: $light-blue;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS Output:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: #6c94be;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Mixins
+--------------------
+
+To include a class as a mixin, simply include it in the styles.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@mixin bordered() {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#menu a {
+    color: #111;
+    @include bordered();
+} 
+
+.post a {
+    color: red;
+    @include bordered();
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Mixins with Parameters
+------------------------------------
+
+Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.border-radius($radius: 5px) { 
+    -webkit-border-radius: $radius; 
+       -moz-border-radius: $radius; 
+            border-radius: $radius; 
+}
+
+.button {
+    @include border-radius(2px);
+}
+.button-rounded {
+    @include border-radius();
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.button {   
+    -webkit-border-radius: 2px;   
+       -moz-border-radius: 2px;   
+            border-radius: 2px; 
+} 
+.button-rounded {   
+    -webkit-border-radius: 5px;   
+       -moz-border-radius: 5px;   
+            border-radius: 5px; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Nesting Rules
+---------------------------
+
+Rules can be nested, with or without operators (`>`, `+`, etc).
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: black;
+    .navigation {
+        font-size: 12px;
+    }
+    .logo {
+        width: 300px;
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#header {
+    color: black;
+}
+
+#header .navigation {
+    font-size: 12px;
+}
+
+#header .logo {
+    width: 300px;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Nesting with `&`
+------------------------------
+
+The ampersand (`&`) can be used to refer to the current selector parent.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.clearfix {
+    display: block;
+    zoom: 1;
+    &:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }   
+}
+
+.script-alert {
+    display: none;
+    .no-js & {
+        display: block;
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+}
+
+.script-alert {   
+    display: none; 
+}
+
+.no-js .script-alert {   
+    display: block; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Nesting Media Queries
+-----------------------------------
+
+Media queries may be nested.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.screencolor{ 
+    @media screen { 
+        color: green;
+        @media (min-width:768px) { 
+            color: red; 
+        } 
+    } 
+    @media tv { 
+        color: black; 
+    } 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@media screen {
+    .screencolor {
+        color: green;   
+    }
+}
+
+@media screen and (min-width: 768px) {   
+    .screencolor { 
+        color: red;   
+    } 
+}
+
+@media tv {   
+    .screencolor { 
+        color: black;   
+    } 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Nesting Rules
+---------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+body {
+    background: {
+        color: #ccc;
+        image: url(../img/bg.png);
+        attachment: fixed;
+        repeat: repeat-x;
+        size: contain;
+    }
+    padding: {
+        top: 60px;
+        bottom: 20px;
+    }
+    border: {
+        style: solid;
+        left: {
+            width: 1px;
+            color: #666;
+        }
+        right: {
+            width: 5px;
+            color: #999;
+        }
+        image: {
+            source: url(../img/border-img.png);
+            repeat: round;
+        }
+    }
+    font: {
+        size: 16px;
+        weight: 300;
+        family: 'sans serif';
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+body {   
+    background-color: #ccc;   
+    background-image: url(../img/bg.png);   
+    background-attachment: fixed;   
+    background-repeat: repeat-x;   
+    background-size: contain;   
+    padding-top: 60px;   
+    padding-bottom: 20px;   
+    border-style: solid;   
+    border-left-width: 1px;   
+    border-left-color: #666;   
+    border-right-width: 5px;   
+    border-right-color: #999;   
+    border-image-source: url(../img/border-img.png);   
+    border-image-repeat: round;   
+    font-size: 16px;   
+    font-weight: 300;   
+    font-family: 'sans serif'; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: `@extend` 
+------------------------
+
+Use `@extend [selector]` to extend the rules of one selector to another. Deep search even in nested selectors.
+
+**Warning:** This can quickly bloat your CSS.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.no-formattribute body { 	
+    background-color: red;
+}
+
+iframe {
+    @extend body;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+body, iframe {
+    ...
+}
+
+.no-formattribute body, .no-formattribute iframe {   
+    background-color: red;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing Sass: Operations
+------------------------
+
+Sass has support for math-like operations.
+
+### Sass:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$num-grid-columns: 12;
+$grid-column-gutter: 30px;
+
+.row {
+    display: block;
+    @include clearfix();
+    margin-left: -$grid-column-gutter / 2;
+    margin-right: -$grid-column-gutter / 2;
+    width: 100%;
+}
+
+@mixin column($num-columns: 1) {
+    margin: 0;
+    display: block;
+    float: left;
+    width: percentage($num-columns / $num-grid-columns);
+    box-sizing: border-box;
+    padding-left: $grid-column-gutter / 2;
+    padding-right: $grid-column-gutter / 2;
+}
+
+.full-width {
+    @include column(12);
+}
+.sidebar {
+    @include column(2);
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS: 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.clearfix, .row {...}
+.row {   
+    display: block; 
+    margin-left: -15px;   
+    margin-right: -15px;
+    width: 100%;
+}  
+.full-width {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 100%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+} 
+.sidebar {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 16.666666666666664%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
