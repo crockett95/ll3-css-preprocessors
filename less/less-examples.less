@@ -51,3 +51,15 @@
         display: block;  
     }  
 }
+
+.screencolor{
+	@media screen {
+		color: green;
+		@media (min-width:768px) {
+			color: red;
+		}
+	}
+	@media tv {
+		color: black;
+	}
+}
