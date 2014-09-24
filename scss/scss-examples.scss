@@ -75,3 +75,37 @@ $light-blue: $nice-blue + #111;
         color: black;   
     }   
 }
+
+body {  
+    background: {  
+        color: #ccc;  
+        image: url(../img/bg.png);  
+        attachment: fixed;  
+        repeat: repeat-x;  
+        size: contain;  
+    }  
+    padding: {  
+        top: 60px;  
+        bottom: 20px;  
+    }  
+    border: {  
+        style: solid;  
+        left: {  
+            width: 1px;  
+            color: #666;  
+        }  
+        right: {  
+            width: 5px;  
+            color: #999;  
+        }  
+        image: {  
+            source: url(../img/border-img.png);  
+            repeat: round;  
+        }  
+    }  
+    font: {  
+        size: 16px;  
+        weight: 300;  
+        family: 'sans serif';  
+    }  
+}
