@@ -5,3 +5,18 @@ $light-blue: $nice-blue + #111;
 #header {  
     color: $light-blue;  
 }
+
+@mixin bordered() {
+	border-top: dotted 1px black;  
+    border-bottom: solid 2px black;
+}
+
+#menu a {  
+    color: #111;  
+    @include bordered();  
+}   
+  
+.post a {  
+    color: red;  
+    @include bordered();  
+}
