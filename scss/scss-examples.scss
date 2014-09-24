@@ -20,3 +20,16 @@ $light-blue: $nice-blue + #111;
     color: red;  
     @include bordered();  
 }
+
+@mixin border-radius($radius: 5px) {   
+    -webkit-border-radius: $radius;   
+       -moz-border-radius: $radius;   
+            border-radius: $radius;   
+}  
+  
+.button {  
+    @include border-radius(2px);  
+}  
+.button-rounded {  
+    @include border-radius();  
+}
