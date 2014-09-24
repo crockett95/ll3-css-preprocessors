@@ -117,3 +117,31 @@ body {
 iframe {
 	@extend body;
 }
+
+$num-grid-columns: 12;  
+$grid-column-gutter: 30px;  
+  
+.row {  
+    display: block;  
+    @extend .clearfix;  
+    margin-left: -$grid-column-gutter / 2;  
+    margin-right: -$grid-column-gutter / 2;  
+    width: 100%;  
+}  
+  
+@mixin column($num-columns: 1) {  
+    margin: 0;  
+    display: block;  
+    float: left;  
+    width: percentage($num-columns / $num-grid-columns);  
+    box-sizing: border-box;  
+    padding-left: $grid-column-gutter / 2;  
+    padding-right: $grid-column-gutter / 2;  
+}  
+  
+.full-width {  
+    @include column(12);  
+}  
+.sidebar {  
+    @include column(2);  
+}
