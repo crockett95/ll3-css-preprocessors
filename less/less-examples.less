@@ -104,3 +104,12 @@
 .sidebar {  
     .column(2);  
 }
+
+.blue-button {
+	@blue-color: #005288;
+	color: white;
+	background-color: @blue-color;
+	&:hover {
+		background-color: desaturate(darken(@blue-color, 10%), 5%);
+	}
+}
