@@ -76,3 +76,31 @@
 .button-rounded {  
     .border-radius();  
 }
+
+@num-grid-columns: 12;  
+@grid-column-gutter: 30px;  
+  
+.row {  
+    display: block;  
+    .clearfix;  
+    margin-left: -@grid-column-gutter / 2;  
+    margin-right: -@grid-column-gutter / 2;  
+    width: 100%;
+}  
+  
+.column(@num-columns: 1) {  
+    margin: 0;  
+    display: block;  
+    float: left;  
+    width: percentage(@num-columns / @num-grid-columns);  
+    box-sizing: border-box;  
+    padding-left: @grid-column-gutter / 2;  
+    padding-right: @grid-column-gutter / 2;  
+}  
+  
+.full-width {  
+    .column(12);  
+}  
+.sidebar {  
+    .column(2);  
+}

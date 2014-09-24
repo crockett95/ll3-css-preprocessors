@@ -63,3 +63,36 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.row {
+  display: block;
+  zoom: 1;
+  margin-left: -15px;
+  margin-right: -15px;
+  width: 100%;
+}
+.row:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.full-width {
+  margin: 0;
+  display: block;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.sidebar {
+  margin: 0;
+  display: block;
+  float: left;
+  width: 16.666666666666664%;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+}
