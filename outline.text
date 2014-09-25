@@ -433,7 +433,7 @@ LESS has support for math-like operations.
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-### CSS: 
+### CSS:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .row {   
@@ -480,11 +480,11 @@ of cool things with numbers and colors.
 ### LESS:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.blue-button { 	
-    @blue-color: #005288; 	
-    color: white; 	
-    background-color: @blue-color; 	
-    &:hover { 		
+.blue-button {  
+    @blue-color: #005288;   
+    color: white;   
+    background-color: @blue-color;  
+    &:hover {       
         background-color: desaturate(darken(@blue-color, 10%), 5%);
     }
 }
@@ -541,7 +541,7 @@ Wait, there's two?
 There are two different syntaxes for Sass, as well and two corresponding file
 extensions.
 
-### `.sass` 
+### `.sass`
 
 This is a whitespace-sensitive syntax, using tabs to set levels. It's being
 phased out, from what I can tell, but some people like it.
@@ -868,8 +868,8 @@ body {
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Writing Sass: `@extend` 
-------------------------
+Writing Sass: `@extend`
+-----------------------
 
 Use `@extend [selector]` to extend the rules of one selector to another. Deep
 search even in nested selectors.
@@ -879,7 +879,7 @@ search even in nested selectors.
 ### Sass:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.no-formattribute body { 	
+.no-formattribute body {    
     background-color: red;
 }
 
@@ -937,7 +937,7 @@ $grid-column-gutter: 30px;
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-### CSS: 
+### CSS:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .clearfix, .row {...}
@@ -967,7 +967,7 @@ $grid-column-gutter: 30px;
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Writing LESS: Functions
+Writing Sass: Functions
 -----------------------
 
 Sass has plenty of functions, and many of them are similar or identical to their
@@ -976,11 +976,11 @@ LESS counterparts
 ### Sass:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.blue-button { 	
-    $blue-color: #005288; 	
-    color: white; 	
-    background-color: $blue-color; 	
-    &:hover { 		
+.blue-button {  
+    $blue-color: #005288;   
+    color: white;   
+    background-color: $blue-color;  
+    &:hover {       
         background-color: desaturate(darken($blue-color, 10%), 5%);
     }
 }
@@ -1011,16 +1011,36 @@ files together.
 Include files that should not be compiled separately are prefixed with an
 underscore (e.g. `_variables.scss`).
 
+Learn More
+----------
+
+-   [Sass Website][4]
+
+    [4]: <http://sass-lang.com/>
+
+-   [Assembling Sass][5] by Code School
+
+    [5]: <http://sass.codeschool.com/levels/1>
+
 Questions?
 ==========
 
 Practice
 ========
 
+Assembling Sass
+---------------
+
+Complete the [Assembling Sass][6] course from Code School
+
+[6]: <http://sass.codeschool.com/levels/1>
+
 Download and Install Prepros
 ----------------------------
 
-1.  Download [Prepros]
+1.  Download [Prepros][7]
+
+    [7]: <#prepros>
 
 2.  Install Prepros
 
@@ -1039,9 +1059,9 @@ Use your little webpage from weeks 1 & 2 for this:
 4.  Configure Prepros's output of the Sass, and add the compiled CSS file your
     webpages.
 
-5.  Add some dummy content ([Hipster Ipsum][4] is available if you need it)
+5.  Add some dummy content ([Hipster Ipsum][8] is available if you need it)
 
-    [4]: <http://hipsum.co>
+    [8]: <http://hipsum.co>
 
 6.  Style your site. Make sure to use functions, nesting, and write your own
     mixins.
