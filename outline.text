@@ -970,18 +970,18 @@ $grid-column-gutter: 30px;
 Writing LESS: Functions
 -----------------------
 
-Less has plenty of functions (You've already seen a few!) that will do all kinds
-of cool things with numbers and colors.
+Sass has plenty of functions, and many of them are similar or identical to their
+LESS counterparts
 
-### LESS:
+### Sass:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .blue-button { 	
-    @blue-color: #005288; 	
+    $blue-color: #005288; 	
     color: white; 	
-    background-color: @blue-color; 	
+    background-color: $blue-color; 	
     &:hover { 		
-        background-color: desaturate(darken(@blue-color, 10%), 5%);
+        background-color: desaturate(darken($blue-color, 10%), 5%);
     }
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1010,3 +1010,43 @@ files together.
 
 Include files that should not be compiled separately are prefixed with an
 underscore (e.g. `_variables.scss`).
+
+Questions?
+==========
+
+Practice
+========
+
+Download and Install Prepros
+----------------------------
+
+1.  Download [Prepros]
+
+2.  Install Prepros
+
+Configure Prepros​ & Write Some Sass
+------------------------------------
+
+Use your little webpage from weeks 1 & 2 for this:
+
+1.  Set the project up in Prepros
+
+2.  Add a Sass file at `scss/styles.scss` and migrate your styles
+
+3.  Add a second file to handle variables, and add the import at the beginning
+    of the `styles.scss` file
+
+4.  Configure Prepros's output of the Sass, and add the compiled CSS file your
+    webpages.
+
+5.  Add some dummy content ([Hipster Ipsum][4] is available if you need it)
+
+    [4]: <http://hipsum.co>
+
+6.  Style your site. Make sure to use functions, nesting, and write your own
+    mixins.
+
+Extra Credit
+------------
+
+Make another webpage that uses client-side LESS for styling.
