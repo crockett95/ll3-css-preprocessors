@@ -6,19 +6,29 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
-<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/default.css" id="theme">
+<title>CSS Preprocessors</title>
+<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="bower_components/reveal.js/css/theme/solarized.css" id="theme">
+<link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
 <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'bower_components/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
 <!--[if lt IE 9]>
-<script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+<script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
-<script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
-<section class="slide"><div><h1>Before We Begin</h1></div></section>
+<section><section class="slide"><div><h1>Before We Begin</h1></div></section>
 
 <section class="slide"><div><h2>Last Week</h2><ul>
 <li>
@@ -26,9 +36,12 @@
 </li><li>
 <p>Questions about WAMP and Local Development</p>
 </li>
-</ul></div></section>
+</ul></div></section></section>
 
-<section class="slide"><div><h1>CSS Preprocessors</h1></div></section>
+<section><section class="slide"><div><h1>CSS Preprocessors</h1>
+<h3>Lunch & Learn: Week 3</h3>
+<p>Steve Crockett, Web Developer</p>
+</div></section>
 
 <section class="slide"><div><h2>Topics</h2><ul>
 <li>
@@ -42,9 +55,9 @@
 </li>
 </ul>
 </li>
-</ul></div></section>
+</ul></div></section></section>
 
-<section class="slide"><div><h1>Prepros</h1></div></section>
+<section><section class="slide"><div><h1>Prepros</h1></div></section>
 
 <section class="slide"><div><ul>
 <li>
@@ -82,9 +95,9 @@
 </li>
 </ol></div></section>
 
-<section class="slide"><div><h2>Learn More</h2><p>Download <a href="http://lesscss.org/#">Prepros</a></p><p>Read the <a href="http://alphapixels.com/prepros/docs/">Docs</a></p></div></section>
+<section class="slide"><div><h2>Learn More</h2><p>Download <a href="http://lesscss.org/#">Prepros</a></p><p>Read the <a href="http://alphapixels.com/prepros/docs/">Docs</a></p></div></section></section>
 
-<section class="slide"><div><h1>CSS Preprocessors</h1></div></section>
+<section><section class="slide"><div><h1>CSS Preprocessors</h1></div></section>
 
 <section class="slide"><div><h2>Why use a CSS Preprocessor?</h2><p>CSS becomes easier to write and to maintain:</p><ul>
 <li>
@@ -99,8 +112,8 @@
 <p>Mixins</p>
 </li>
 </ul></div></section>
-
-<section class="slide"><div><h1>LESS</h1></div></section>
+</section>
+<section><section class="slide"><div><h1>LESS</h1></div></section>
 
 <section class="slide"><div><h2>Advantages of LESS</h2><ul>
 <li>
@@ -128,7 +141,7 @@
 #header {
     color: @light-blue;
 }
-</code></pre><h3>CSS Output:</h3><pre><code>#header {
+</code></pre></div></section><section class="slide"><div><h3>CSS Output:</h3><pre><code>#header {
     color: #6c94be;
 }
 </code></pre></div></section>
@@ -146,7 +159,7 @@
     color: red;
     .bordered;
 }
-</code></pre><h3>CSS:</h3><pre><code>.bordered {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.bordered {
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
 }
@@ -175,7 +188,7 @@
     color: red;
     .bordered;
 }
-</code></pre><h3>CSS:</h3><pre><code>#menu a {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>#menu a {
     color: #111;
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
@@ -199,7 +212,7 @@
 .button-rounded {
     .border-radius();
 }
-</code></pre><h3>CSS:</h3><pre><code>.button {   
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.button {   
     -webkit-border-radius: 2px;   
        -moz-border-radius: 2px;   
             border-radius: 2px; 
@@ -220,7 +233,7 @@
         width: 300px;
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>#header {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>#header {
     color: black;
 }
 
@@ -252,7 +265,7 @@
         display: block;
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>.clearfix {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.clearfix {
     display: block;
     zoom: 1;
 }
@@ -286,7 +299,7 @@
         color: black; 
     } 
 }
-</code></pre><h3>CSS:</h3><pre><code>@media screen {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>@media screen {
     .screencolor {
         color: green;   
     }
@@ -332,7 +345,7 @@
 .sidebar {
     .column(2);
 }
-</code></pre><h3>CSS: </h3><pre><code>.row {   
+</code></pre></div></section><section class="slide"><div><h3>CSS: </h3><pre><code>.row {   
     display: block;   
     zoom: 1;   
     margin-left: -15px;   
@@ -367,15 +380,15 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.</p><h3>LESS:</h3><pre><code>.blue-button { 	
-    @blue-color: #005288; 	
-    color: white; 	
-    background-color: @blue-color; 	
-    &amp;:hover { 		
+<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.</p><h3>LESS:</h3><pre><code>.blue-button {     
+    @blue-color: #005288;     
+    color: white;     
+    background-color: @blue-color;     
+    &amp;:hover {         
         background-color: desaturate(darken(@blue-color, 10%), 5%);
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>.blue-button {   
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.blue-button {   
     color: white;   
     background-color: #005288; 
 } 
@@ -392,8 +405,8 @@
 </code></pre></div></section>
 
 <section class="slide"><div><h2>Learn More</h2><p><a href="http://lesscss.org/#">LESS Website</a></p></div></section>
-
-<section class="slide"><div><h1>Sass/SCSS</h1></div></section>
+</section>
+<section><section class="slide"><div><h1>Sass/SCSS</h1></div></section>
 
 <section class="slide"><div><h2>Wait, there's two?</h2><p>There are two different syntaxes for Sass, as well and two corresponding file extensions.</p><h3><code>.sass</code> </h3><p>This is a whitespace-sensitive syntax, using tabs to set levels. It's being phased out, from what I can tell, but some people like it.</p><h3><code>.scss</code></h3><p>This is a syntax that resembles CSS (and LESS). This is the one we'll be talking about</p></div></section>
 
@@ -423,7 +436,7 @@ $light-blue: $nice-blue + #111;
 #header {
     color: $light-blue;
 }
-</code></pre><h3>CSS Output:</h3><pre><code>#header {
+</code></pre></div></section><section class="slide"><div><h3>CSS Output:</h3><pre><code>#header {
     color: #6c94be;
 }
 </code></pre></div></section>
@@ -441,7 +454,7 @@ $light-blue: $nice-blue + #111;
     color: red;
     @include bordered();
 }
-</code></pre><h3>CSS:</h3><pre><code>#menu a {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>#menu a {
     color: #111;
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
@@ -465,7 +478,7 @@ $light-blue: $nice-blue + #111;
 .button-rounded {
     @include border-radius();
 }
-</code></pre><h3>CSS:</h3><pre><code>.button {   
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.button {   
     -webkit-border-radius: 2px;   
        -moz-border-radius: 2px;   
             border-radius: 2px; 
@@ -486,7 +499,7 @@ $light-blue: $nice-blue + #111;
         width: 300px;
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>#header {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>#header {
     color: black;
 }
 
@@ -518,7 +531,7 @@ $light-blue: $nice-blue + #111;
         display: block;
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>.clearfix {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.clearfix {
     display: block;
     zoom: 1;
 }
@@ -552,7 +565,7 @@ $light-blue: $nice-blue + #111;
         color: black; 
     } 
 }
-</code></pre><h3>CSS:</h3><pre><code>@media screen {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>@media screen {
     .screencolor {
         color: green;   
     }
@@ -604,7 +617,7 @@ $light-blue: $nice-blue + #111;
         family: 'sans serif';
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>body {   
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>body {   
     background-color: #ccc;   
     background-image: url(../img/bg.png);   
     background-attachment: fixed;   
@@ -625,14 +638,14 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: <code>@extend</code> </h2><p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p><p><strong>Warning:</strong> This can quickly bloat your CSS.</p><h3>Sass:</h3><pre><code>.no-formattribute body { 	
+<section class="slide"><div><h2>Writing Sass: <code>@extend</code> </h2><p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p><p><strong>Warning:</strong> This can quickly bloat your CSS.</p><h3>Sass:</h3><pre><code>.no-formattribute body {     
     background-color: red;
 }
 
 iframe {
     @extend body;
 }
-</code></pre><h3>CSS:</h3><pre><code>body, iframe {
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>body, iframe {
     ...
 }
 
@@ -668,7 +681,7 @@ $grid-column-gutter: 30px;
 .sidebar {
     @include column(2);
 }
-</code></pre><h3>CSS: </h3><pre><code>.clearfix, .row {...}
+</code></pre></div></section><section class="slide"><div><h3>CSS: </h3><pre><code>.clearfix, .row {...}
 .row {   
     display: block; 
     margin-left: -15px;   
@@ -695,15 +708,15 @@ $grid-column-gutter: 30px;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p><h3>Sass:</h3><pre><code>.blue-button { 	
-    $blue-color: #005288; 	
-    color: white; 	
-    background-color: $blue-color; 	
-    &amp;:hover { 		
+<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p><h3>Sass:</h3><pre><code>.blue-button {     
+    $blue-color: #005288;     
+    color: white;     
+    background-color: $blue-color;     
+    &amp;:hover {         
         background-color: desaturate(darken($blue-color, 10%), 5%);
     }
 }
-</code></pre><h3>CSS:</h3><pre><code>.blue-button {   
+</code></pre></div></section><section class="slide"><div><h3>CSS:</h3><pre><code>.blue-button {   
     color: white;   
     background-color: #005288; 
 } 
@@ -714,10 +727,27 @@ $grid-column-gutter: 30px;
 </code></pre></div></section>
 
 <section class="slide"><div><h2>Importing other Files</h2><p>To import you can use <code>@import "filename"</code>. The extension <code>.scss</code> (or <code>.sass</code>) is not necessary for Sass files.</p><p>Unlike normal CSS imports, importing one Sass file into another compiles the files together.</p><p>Include files that should not be compiled separately are prefixed with an underscore (e.g. <code>_variables.scss</code>).</p></div></section>
+<section class="slide">
+    <div>
+        <h2>Learn More</h2>
+        <ul>
+            <li><a href="http://sass-lang.com/">Sass Website</a></li>
+            <li><a href="http://sass.codeschool.com/levels/1">Assembling Sass</a> by Code School</li>
+        </ul>
+    </div>
+</section>
+</section>
 
 <section class="slide"><div><h1>Questions?</h1></div></section>
 
-<section class="slide"><div><h1>Practice</h1></div></section>
+<section><section class="slide"><div><h1>Practice</h1></div></section>
+
+<section class="slide">
+    <div>
+        <h2>Assembling Sass</h2>
+        <p>Complete the <a href="http://sass.codeschool.com/levels/1">Assembling Sass</a> course from Code School</p>
+    </div>
+</section>
 
 <section class="slide"><div><h2>Download and Install Prepros</h2><ol>
 <li>
@@ -743,13 +773,33 @@ $grid-column-gutter: 30px;
 </li>
 </ol></div></section>
 
-<section class="slide"><div><h2>Extra Credit</h2><p>Make another webpage that uses client-side LESS for styling.</p></div></section>
+<section class="slide"><div><h2>Extra Credit</h2><p>Make another webpage that uses client-side LESS for styling.</p></div></section></section>
 
 </div>
 </div>
+<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+<script src="bower_components/reveal.js/js/reveal.min.js"></script>
 <script>
-// https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({ controls: false, history: true, transition: 'linear' });
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
 </script>
 </body>
 </html>
