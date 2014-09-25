@@ -1,0 +1,19 @@
+{
+  "name": "ll3-preprocessors",
+  "version": "0.0.0",
+  "homepage": "https://github.com/crockett95/ll3-css-preprocessors",
+  "authors": [
+    "Steve Crockett <crockett95@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~2.6.2"
+  }
+}
