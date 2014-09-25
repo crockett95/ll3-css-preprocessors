@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="http://www.texts.io/">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/default.css" id="theme">
+<link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+<!--[if lt IE 9]>
+<script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+<![endif]-->
+<script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section class="slide"><div><h1>Before We Begin</h1></div></section>
+
+<section class="slide"><div><h2>Last Week</h2><ul>
+<li>
+<p>Questions about DevTools or Discover DevTools course</p>
+</li><li>
+<p>Questions about WAMP and Local Development</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h1>CSS Preprocessors</h1></div></section>
+
+<section class="slide"><div><h2>Topics</h2><ul>
+<li>
+<p>Prepros</p>
+</li><li>
+<p>CSS Preprocessors</p><ul>
+<li>
+<p>LESS</p>
+</li><li>
+<p>Sass/SCSS</p>
+</li>
+</ul>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h1>Prepros</h1></div></section>
+
+<section class="slide"><div><ul>
+<li>
+<p>Preprocessing</p><ul>
+<li>
+<p>CSS: LESS, Sass/SCSS, Stylus</p>
+</li><li>
+<p>JS: Coffeescript, LiveScript</p>
+</li><li>
+<p>HTML: Haml, Markdown, Jade, Slim</p>
+</li>
+</ul>
+</li><li>
+<p>JS Concatenation</p>
+</li><li>
+<p>Image Optimization</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>What is <em>preprocessing</em>?</h2><blockquote>
+<p>In computer science, a <strong>preprocessor</strong> is a program that processes its input data to produce output that is <em>used as input</em> to another program. The output is said to be a <strong>preprocessed</strong> form of the input data, which is often used by some subsequent programs like compilers.</p>
+</blockquote><p><strong>TLDR</strong>: It's taking one set of code and using to make a different set of code;</p></div></section>
+
+<section class="slide"><div><h2>Why use <em>preprocessing</em>?</h2><p>It allows for simpler, more efficient, and/or more maintainable code.</p></div></section>
+
+<section class="slide"><div><h2>What does Prepros do and how do I use it?</h2><ol>
+<li>
+<p>Load a project folder into the app</p>
+</li><li>
+<p>Set file settings (and project settings)</p>
+</li><li>
+<p>Prepros will watch files in your project folder for changes</p>
+</li><li>
+<p>If one changes, it recompiles the output</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Learn More</h2><p>Download <a href="http://lesscss.org/#">Prepros</a></p><p>Read the <a href="http://alphapixels.com/prepros/docs/">Docs</a></p></div></section>
+
+<section class="slide"><div><h1>CSS Preprocessors</h1></div></section>
+
+<section class="slide"><div><h2>Why use a CSS Preprocessor?</h2><p>CSS becomes easier to write and to maintain:</p><ul>
+<li>
+<p>Variables</p>
+</li><li>
+<p>Logic &amp; Math</p>
+</li><li>
+<p>Functions</p>
+</li><li>
+<p>Nesting</p>
+</li><li>
+<p>Mixins</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h1>LESS</h1></div></section>
+
+<section class="slide"><div><h2>Advantages of LESS</h2><ul>
+<li>
+<p>Superset of CSS - All CSS is valid</p>
+</li><li>
+<p>Familiar syntax</p>
+</li><li>
+<p>Broad support</p>
+</li><li>
+<p>Can compile client-side</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>Disadvantages of LESS</h2><ul>
+<li>
+<p>Shallow extensions of style rules</p>
+</li><li>
+<p>Slightly confusing syntax</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Variables</h2><p>A variable is declared like a simple CSS rule, but outside of any blocks. Variable names are of the form <code>@name</code>.</p><h3>LESS:</h3><pre><code>@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+    color: @light-blue;
+}
+</code></pre><h3>CSS Output:</h3><pre><code>#header {
+    color: #6c94be;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>LESS:</h3><pre><code>.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+</code></pre><pre><code>#menu a {
+    color: #111;
+    .bordered;
+} 
+
+.post a {
+    color: red;
+    .bordered;
+}
+</code></pre><h3>CSS:</h3><pre><code>.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: More Mixins</h2><p>Adding parentheses after a mixin name keeps the mixin from being declared as its own class, (e.g. <code>.mixin-name()</code>).</p><h3>LESS:</h3><pre><code>.bordered() {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+</code></pre><pre><code>#menu a {
+    color: #111;
+    .bordered;
+} 
+
+.post a {
+    color: red;
+    .bordered;
+}
+</code></pre><h3>CSS:</h3><pre><code>#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>LESS:</h3><pre><code>.border-radius(@radius: 5px) { 
+    -webkit-border-radius: @radius; 
+       -moz-border-radius: @radius; 
+            border-radius: @radius; 
+}
+
+.button {
+    .border-radius(2px);
+}
+.button-rounded {
+    .border-radius();
+}
+</code></pre><h3>CSS:</h3><pre><code>.button {   
+    -webkit-border-radius: 2px;   
+       -moz-border-radius: 2px;   
+            border-radius: 2px; 
+} 
+.button-rounded {   
+    -webkit-border-radius: 5px;   
+       -moz-border-radius: 5px;   
+            border-radius: 5px; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>LESS:</h3><pre><code>#header {
+    color: black;
+    .navigation {
+        font-size: 12px;
+    }
+    .logo {
+        width: 300px;
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>#header {
+    color: black;
+}
+
+#header .navigation {
+    font-size: 12px;
+}
+
+#header .logo {
+    width: 300px;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>LESS:</h3><pre><code>.clearfix {
+    display: block;
+    zoom: 1;
+    &amp;:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }   
+}
+
+.script-alert {
+    display: none;
+    .no-js &amp; {
+        display: block;
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>.clearfix {
+    display: block;
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+}
+
+.script-alert {   
+    display: none; 
+}
+
+.no-js .script-alert {   
+    display: block; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>LESS:</h3><pre><code>.screencolor{ 
+    @media screen { 
+        color: green;
+        @media (min-width:768px) { 
+            color: red; 
+        } 
+    } 
+    @media tv { 
+        color: black; 
+    } 
+}
+</code></pre><h3>CSS:</h3><pre><code>@media screen {
+    .screencolor {
+        color: green;   
+    }
+}
+
+@media screen and (min-width: 768px) {   
+    .screencolor { 
+        color: red;   
+    } 
+}
+
+@media tv {   
+    .screencolor { 
+        color: black;   
+    } 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Operations</h2><p>LESS has support for math-like operations.</p><h3>LESS:</h3><pre><code>@num-grid-columns: 12;
+@grid-column-gutter: 30px;
+
+.row {
+    display: block;
+    .clearfix;
+    margin-left: -@grid-column-gutter / 2;
+    margin-right: -@grid-column-gutter / 2;
+    width: 100%;
+}
+
+.column(@num-columns: 1) {
+    margin: 0;
+    display: block;
+    float: left;
+    width: percentage(@num-columns / @num-grid-columns);
+    box-sizing: border-box;
+    padding-left: @grid-column-gutter / 2;
+    padding-right: @grid-column-gutter / 2;
+}
+
+.full-width {
+    .column(12);
+}
+.sidebar {
+    .column(2);
+}
+</code></pre><h3>CSS: </h3><pre><code>.row {   
+    display: block;   
+    zoom: 1;   
+    margin-left: -15px;   
+    margin-right: -15px;
+    width: 100%;
+} 
+.row:after {   
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+} 
+.full-width {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 100%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+} 
+.sidebar {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 16.666666666666664%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.</p><h3>LESS:</h3><pre><code>.blue-button { 	
+    @blue-color: #005288; 	
+    color: white; 	
+    background-color: @blue-color; 	
+    &amp;:hover { 		
+        background-color: desaturate(darken(@blue-color, 10%), 5%);
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>.blue-button {   
+    color: white;   
+    background-color: #005288; 
+} 
+
+.blue-button:hover {   
+    background-color: #023353; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Importing other Files</h2><p>To import you can use <code>@import "filename"</code>. The extension <code>.less</code> is not necessary for less files.</p><p>Unlike normal CSS imports, importing one LESS file into another compiles the files together.</p></div></section>
+
+<section class="slide"><div><h2>Client-side LESS</h2><p>Less can be loaded in an HTML page with the <code>less.js</code> file, which will parse the files and append the CSS styles in a <code>&lt;style&gt;&lt;/style&gt;</code> block.</p><p>In the <code>&lt;head&gt;</code> tag, just add:</p><pre><code>&lt;link rel="stylesheet/less" type="text/css" href="styles.less" /&gt;
+&lt;script src="less.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Learn More</h2><p><a href="http://lesscss.org/#">LESS Website</a></p></div></section>
+
+<section class="slide"><div><h1>Sass/SCSS</h1></div></section>
+
+<section class="slide"><div><h2>Wait, there's two?</h2><p>There are two different syntaxes for Sass, as well and two corresponding file extensions.</p><h3><code>.sass</code> </h3><p>This is a whitespace-sensitive syntax, using tabs to set levels. It's being phased out, from what I can tell, but some people like it.</p><h3><code>.scss</code></h3><p>This is a syntax that resembles CSS (and LESS). This is the one we'll be talking about</p></div></section>
+
+<section class="slide"><div><h2>Advantages of Sass</h2><ul>
+<li>
+<p>Superset of CSS - All CSS is valid</p>
+</li><li>
+<p>Familiar syntax</p>
+</li><li>
+<p>Broad support</p>
+</li><li>
+<p>Deep extensions of styles</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>Disadvantages of Sass</h2><ul>
+<li>
+<p>Must be precompiled, no client-side implementation (not usually an issue)</p>
+</li><li>
+<p>Compiler can be a bit slow</p>
+</li>
+</ul></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Variables</h2><p>Variable names are of the form <code>$name</code>.</p><h3>Sass:</h3><pre><code>$nice-blue: #5B83AD;
+$light-blue: $nice-blue + #111;
+
+#header {
+    color: $light-blue;
+}
+</code></pre><h3>CSS Output:</h3><pre><code>#header {
+    color: #6c94be;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>Sass:</h3><pre><code>@mixin bordered() {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black; 
+}
+</code></pre><pre><code>#menu a {
+    color: #111;
+    @include bordered();
+} 
+
+.post a {
+    color: red;
+    @include bordered();
+}
+</code></pre><h3>CSS:</h3><pre><code>#menu a {
+    color: #111;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+.post a {
+    color: red;
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>Sass:</h3><pre><code>.border-radius($radius: 5px) { 
+    -webkit-border-radius: $radius; 
+       -moz-border-radius: $radius; 
+            border-radius: $radius; 
+}
+
+.button {
+    @include border-radius(2px);
+}
+.button-rounded {
+    @include border-radius();
+}
+</code></pre><h3>CSS:</h3><pre><code>.button {   
+    -webkit-border-radius: 2px;   
+       -moz-border-radius: 2px;   
+            border-radius: 2px; 
+} 
+.button-rounded {   
+    -webkit-border-radius: 5px;   
+       -moz-border-radius: 5px;   
+            border-radius: 5px; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>Sass:</h3><pre><code>#header {
+    color: black;
+    .navigation {
+        font-size: 12px;
+    }
+    .logo {
+        width: 300px;
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>#header {
+    color: black;
+}
+
+#header .navigation {
+    font-size: 12px;
+}
+
+#header .logo {
+    width: 300px;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>Sass:</h3><pre><code>.clearfix {
+    display: block;
+    zoom: 1;
+    &amp;:after {
+        content: " ";
+        display: block;
+        font-size: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }   
+}
+
+.script-alert {
+    display: none;
+    .no-js &amp; {
+        display: block;
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>.clearfix {
+    display: block;
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: " ";   
+    display: block;   
+    font-size: 0;   
+    height: 0;   
+    clear: both;   
+    visibility: hidden; 
+}
+
+.script-alert {   
+    display: none; 
+}
+
+.no-js .script-alert {   
+    display: block; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>Sass:</h3><pre><code>.screencolor{ 
+    @media screen { 
+        color: green;
+        @media (min-width:768px) { 
+            color: red; 
+        } 
+    } 
+    @media tv { 
+        color: black; 
+    } 
+}
+</code></pre><h3>CSS:</h3><pre><code>@media screen {
+    .screencolor {
+        color: green;   
+    }
+}
+
+@media screen and (min-width: 768px) {   
+    .screencolor { 
+        color: red;   
+    } 
+}
+
+@media tv {   
+    .screencolor { 
+        color: black;   
+    } 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><pre><code>body {
+    background: {
+        color: #ccc;
+        image: url(../img/bg.png);
+        attachment: fixed;
+        repeat: repeat-x;
+        size: contain;
+    }
+    padding: {
+        top: 60px;
+        bottom: 20px;
+    }
+    border: {
+        style: solid;
+        left: {
+            width: 1px;
+            color: #666;
+        }
+        right: {
+            width: 5px;
+            color: #999;
+        }
+        image: {
+            source: url(../img/border-img.png);
+            repeat: round;
+        }
+    }
+    font: {
+        size: 16px;
+        weight: 300;
+        family: 'sans serif';
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>body {   
+    background-color: #ccc;   
+    background-image: url(../img/bg.png);   
+    background-attachment: fixed;   
+    background-repeat: repeat-x;   
+    background-size: contain;   
+    padding-top: 60px;   
+    padding-bottom: 20px;   
+    border-style: solid;   
+    border-left-width: 1px;   
+    border-left-color: #666;   
+    border-right-width: 5px;   
+    border-right-color: #999;   
+    border-image-source: url(../img/border-img.png);   
+    border-image-repeat: round;   
+    font-size: 16px;   
+    font-weight: 300;   
+    font-family: 'sans serif'; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: <code>@extend</code> </h2><p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p><p><strong>Warning:</strong> This can quickly bloat your CSS.</p><h3>Sass:</h3><pre><code>.no-formattribute body { 	
+    background-color: red;
+}
+
+iframe {
+    @extend body;
+}
+</code></pre><h3>CSS:</h3><pre><code>body, iframe {
+    ...
+}
+
+.no-formattribute body, .no-formattribute iframe {   
+    background-color: red;
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing Sass: Operations</h2><p>Sass has support for math-like operations.</p><h3>Sass:</h3><pre><code>$num-grid-columns: 12;
+$grid-column-gutter: 30px;
+
+.row {
+    display: block;
+    @include clearfix();
+    margin-left: -$grid-column-gutter / 2;
+    margin-right: -$grid-column-gutter / 2;
+    width: 100%;
+}
+
+@mixin column($num-columns: 1) {
+    margin: 0;
+    display: block;
+    float: left;
+    width: percentage($num-columns / $num-grid-columns);
+    box-sizing: border-box;
+    padding-left: $grid-column-gutter / 2;
+    padding-right: $grid-column-gutter / 2;
+}
+
+.full-width {
+    @include column(12);
+}
+.sidebar {
+    @include column(2);
+}
+</code></pre><h3>CSS: </h3><pre><code>.clearfix, .row {...}
+.row {   
+    display: block; 
+    margin-left: -15px;   
+    margin-right: -15px;
+    width: 100%;
+}  
+.full-width {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 100%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+} 
+.sidebar {   
+    margin: 0;   
+    display: block;   
+    float: left;   
+    width: 16.666666666666664%;   
+    box-sizing: border-box;   
+    padding-left: 15px;   
+    padding-right: 15px; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p><h3>Sass:</h3><pre><code>.blue-button { 	
+    $blue-color: #005288; 	
+    color: white; 	
+    background-color: $blue-color; 	
+    &amp;:hover { 		
+        background-color: desaturate(darken($blue-color, 10%), 5%);
+    }
+}
+</code></pre><h3>CSS:</h3><pre><code>.blue-button {   
+    color: white;   
+    background-color: #005288; 
+} 
+
+.blue-button:hover {   
+    background-color: #023353; 
+}
+</code></pre></div></section>
+
+<section class="slide"><div><h2>Importing other Files</h2><p>To import you can use <code>@import "filename"</code>. The extension <code>.scss</code> (or <code>.sass</code>) is not necessary for Sass files.</p><p>Unlike normal CSS imports, importing one Sass file into another compiles the files together.</p><p>Include files that should not be compiled separately are prefixed with an underscore (e.g. <code>_variables.scss</code>).</p></div></section>
+
+<section class="slide"><div><h1>Questions?</h1></div></section>
+
+<section class="slide"><div><h1>Practice</h1></div></section>
+
+<section class="slide"><div><h2>Download and Install Prepros</h2><ol>
+<li>
+<p>Download Prepros</p>
+</li><li>
+<p>Install Prepros</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Configure Prepros​ &amp; Write Some Sass</h2><p>Use your little webpage from weeks 1 &amp; 2 for this:</p><ol>
+<li>
+<p>Set the project up in Prepros</p>
+</li><li>
+<p>Add a Sass file at <code>scss/styles.scss</code> and migrate your styles</p>
+</li><li>
+<p>Add a second file to handle variables, and add the import at the beginning of the <code>styles.scss</code> file</p>
+</li><li>
+<p>Configure Prepros's output of the Sass, and add the compiled CSS file your webpages.</p>
+</li><li>
+<p>Add some dummy content (<a href="http://hipsum.co">Hipster Ipsum</a> is available if you need it)</p>
+</li><li>
+<p>Style your site. Make sure to use functions, nesting, and write your own mixins.</p>
+</li>
+</ol></div></section>
+
+<section class="slide"><div><h2>Extra Credit</h2><p>Make another webpage that uses client-side LESS for styling.</p></div></section>
+
+</div>
+</div>
+<script>
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({ controls: false, history: true, transition: 'linear' });
+</script>
+</body>
+</html>
