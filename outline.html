@@ -2,22 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body>
-<h1>Before We Begin</h1>
+<body class="container">
 
-<h2>Last Week</h2>
-
-<ul>
-<li>
-<p>Questions about DevTools or Discover DevTools course</p>
-</li><li>
-<p>Questions about WAMP and Local Development</p>
-</li>
-</ul>
-
-<h1>CSS Preprocessors</h1>
+<h1 class="page-header">CSS Preprocessors</h1>
 
 <h2>Topics</h2>
 
@@ -425,7 +415,7 @@
 }
 </code></pre>
 
-<h3>CSS: </h3>
+<h3>CSS:</h3>
 
 <pre><code>.row {   
     display: block;   
@@ -468,11 +458,11 @@
 
 <h3>LESS:</h3>
 
-<pre><code>.blue-button { 	
-    @blue-color: #005288; 	
-    color: white; 	
-    background-color: @blue-color; 	
-    &amp;:hover { 		
+<pre><code>.blue-button {  
+    @blue-color: #005288;   
+    color: white;   
+    background-color: @blue-color;  
+    &amp;:hover {       
         background-color: desaturate(darken(@blue-color, 10%), 5%);
     }
 }
@@ -516,7 +506,7 @@
 
 <p>There are two different syntaxes for Sass, as well and two corresponding file extensions.</p>
 
-<h3><code>.sass</code> </h3>
+<h3><code>.sass</code></h3>
 
 <p>This is a whitespace-sensitive syntax, using tabs to set levels. It's being phased out, from what I can tell, but some people like it.</p>
 
@@ -824,7 +814,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre>
 
-<h2>Writing Sass: <code>@extend</code> </h2>
+<h2>Writing Sass: <code>@extend</code></h2>
 
 <p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p>
 
@@ -832,7 +822,7 @@ $light-blue: $nice-blue + #111;
 
 <h3>Sass:</h3>
 
-<pre><code>.no-formattribute body { 	
+<pre><code>.no-formattribute body {    
     background-color: red;
 }
 
@@ -887,7 +877,7 @@ $grid-column-gutter: 30px;
 }
 </code></pre>
 
-<h3>CSS: </h3>
+<h3>CSS:</h3>
 
 <pre><code>.clearfix, .row {...}
 .row {   
@@ -916,17 +906,17 @@ $grid-column-gutter: 30px;
 }
 </code></pre>
 
-<h2>Writing LESS: Functions</h2>
+<h2>Writing Sass: Functions</h2>
 
 <p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p>
 
 <h3>Sass:</h3>
 
-<pre><code>.blue-button { 	
-    $blue-color: #005288; 	
-    color: white; 	
-    background-color: $blue-color; 	
-    &amp;:hover { 		
+<pre><code>.blue-button {  
+    $blue-color: #005288;   
+    color: white;   
+    background-color: $blue-color;  
+    &amp;:hover {       
         background-color: desaturate(darken($blue-color, 10%), 5%);
     }
 }
@@ -952,15 +942,27 @@ $grid-column-gutter: 30px;
 
 <p>Include files that should not be compiled separately are prefixed with an underscore (e.g. <code>_variables.scss</code>).</p>
 
-<h1>Questions?</h1>
+<h2>Learn More</h2>
+
+<ul>
+<li>
+<p><a href="http://sass-lang.com/">Sass Website</a></p>
+</li><li>
+<p><a href="http://sass.codeschool.com/levels/1">Assembling Sass</a> by Code School</p>
+</li>
+</ul>
 
 <h1>Practice</h1>
+
+<h2>Assembling Sass</h2>
+
+<p>Complete the <a href="http://sass.codeschool.com/levels/1">Assembling Sass</a> course from Code School</p>
 
 <h2>Download and Install Prepros</h2>
 
 <ol>
 <li>
-<p>Download Prepros</p>
+<p>Download <a href="#prepros">Prepros</a></p>
 </li><li>
 <p>Install Prepros</p>
 </li>
