@@ -40,9 +40,12 @@ Prepros
 What is *preprocessing*?
 ------------------------
 
->   In computer science, a **preprocessor** is a program that processes its input data to produce output that is *used as input* to another program. The output is said to be a **preprocessed** form of the input data, which is often used by some subsequent programs like compilers.
+>   In computer science, a **preprocessor** is a program that processes its
+>   input data to produce output that is *used as input* to another program. The
+>   output is said to be a **preprocessed** form of the input data, which is
+>   often used by some subsequent programs like compilers.
 
-TLDR: It's taking one set of code and using to make a different set of code;
+**TLDR**: It's taking one set of code and using to make a different set of code;
 
 Why use *preprocessing*?
 ------------------------
@@ -65,7 +68,7 @@ Learn More
 
 Download [Prepros][1]
 
-[1]: <http://alphapixels.com/prepros/>
+[1]: <http://lesscss.org/#>
 
 Read the [Docs][2]
 
@@ -113,7 +116,8 @@ Disadvantages of LESS
 Writing LESS: Variables
 -----------------------
 
-A variable is declared like a simple CSS rule, but outside of any blocks. Variable names are of the form `@name`.
+A variable is declared like a simple CSS rule, but outside of any blocks.
+Variable names are of the form `@name`.
 
 ### LESS:
 
@@ -182,7 +186,8 @@ To include a class as a mixin, simply include it in the styles.
 Writing LESS: More Mixins
 -------------------------
 
-Adding parentheses after a mixin name keeps the mixin from being declared as its own class, (e.g. `.mixin-name()`).
+Adding parentheses after a mixin name keeps the mixin from being declared as its
+own class, (e.g. `.mixin-name()`).
 
 ### LESS:
 
@@ -223,7 +228,8 @@ Adding parentheses after a mixin name keeps the mixin from being declared as its
 Writing LESS: Mixins with Parameters
 ------------------------------------
 
-Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.
+Mixins can accept parameters. Defaults can also be specified to allow the
+parameter to be omitted.
 
 ### LESS:
 
@@ -468,7 +474,8 @@ LESS has support for math-like operations.
 Writing LESS: Functions
 -----------------------
 
-Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.
+Less has plenty of functions (You've already seen a few!) that will do all kinds
+of cool things with numbers and colors.
 
 ### LESS:
 
@@ -499,14 +506,17 @@ Less has plenty of functions (You've already seen a few!) that will do all kinds
 Importing other Files
 ---------------------
 
-To import you can use `@import "filename"`. The extension `.less` is not necessary for less files.
+To import you can use `@import "filename"`. The extension `.less` is not
+necessary for less files.
 
-Unlike normal CSS imports, importing one LESS file into another compiles the files together.
+Unlike normal CSS imports, importing one LESS file into another compiles the
+files together.
 
 Client-side LESS
 ----------------
 
-Less can be loaded in an HTML page with the `less.js` file, which will parse the files and append the CSS styles in a `<style></style>` block.
+Less can be loaded in an HTML page with the `less.js` file, which will parse the
+files and append the CSS styles in a `<style></style>` block.
 
 In the `<head>` tag, just add:
 
@@ -518,9 +528,9 @@ In the `<head>` tag, just add:
 Learn More
 ----------
 
-[LESS Website][1]
+[LESS Website][3]
 
-[1]: <http://lesscss.org/#>
+[3]: <http://lesscss.org/#>
 
 Sass/SCSS
 =========
@@ -528,15 +538,18 @@ Sass/SCSS
 Wait, there's two?
 ------------------
 
-There are two different syntaxes for Sass, as well and two corresponding file extensions.
+There are two different syntaxes for Sass, as well and two corresponding file
+extensions.
 
 ### `.sass` 
 
-This is a whitespace-sensitive syntax, using tabs to set levels. It's being phased out, from what I can tell, but some people like it.
+This is a whitespace-sensitive syntax, using tabs to set levels. It's being
+phased out, from what I can tell, but some people like it.
 
 ### `.scss`
 
-This is a syntax that resembles CSS (and LESS). This is the one we'll be talking about
+This is a syntax that resembles CSS (and LESS). This is the one we'll be talking
+about
 
 Advantages of Sass
 ------------------
@@ -624,7 +637,8 @@ To include a class as a mixin, simply include it in the styles.
 Writing Sass: Mixins with Parameters
 ------------------------------------
 
-Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.
+Mixins can accept parameters. Defaults can also be specified to allow the
+parameter to be omitted.
 
 ### Sass:
 
@@ -857,7 +871,8 @@ body {
 Writing Sass: `@extend` 
 ------------------------
 
-Use `@extend [selector]` to extend the rules of one selector to another. Deep search even in nested selectors.
+Use `@extend [selector]` to extend the rules of one selector to another. Deep
+search even in nested selectors.
 
 **Warning:** This can quickly bloat your CSS.
 
@@ -951,3 +966,47 @@ $grid-column-gutter: 30px;
     padding-right: 15px; 
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Writing LESS: Functions
+-----------------------
+
+Less has plenty of functions (You've already seen a few!) that will do all kinds
+of cool things with numbers and colors.
+
+### LESS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.blue-button { 	
+    @blue-color: #005288; 	
+    color: white; 	
+    background-color: @blue-color; 	
+    &:hover { 		
+        background-color: desaturate(darken(@blue-color, 10%), 5%);
+    }
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### CSS:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.blue-button {   
+    color: white;   
+    background-color: #005288; 
+} 
+
+.blue-button:hover {   
+    background-color: #023353; 
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Importing other Files
+---------------------
+
+To import you can use `@import "filename"`. The extension `.scss` (or `.sass`)
+is not necessary for Sass files.
+
+Unlike normal CSS imports, importing one Sass file into another compiles the
+files together.
+
+Include files that should not be compiled separately are prefixed with an
+underscore (e.g. `_variables.scss`).
