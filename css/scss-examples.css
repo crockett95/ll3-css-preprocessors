@@ -122,3 +122,11 @@ body, iframe {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.blue-button {
+  color: white;
+  background-color: #005288;
+}
+.blue-button:hover {
+  background-color: #023353;
+}
