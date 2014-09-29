@@ -794,7 +794,7 @@ $grid-column-gutter: 30px;
             { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
             { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
             { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js', async: true, callback: function() { hljs.configure({'languages': ['css', 'less', 'scss']}); hljs.initHighlightingOnLoad(); } },
+            { src: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js', async: true, callback: function() { hljs.configure({'languages': ['css', 'less', 'scss', 'html']}); hljs.initHighlighting(); } },
             { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
             { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
