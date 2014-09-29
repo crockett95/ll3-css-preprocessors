@@ -135,7 +135,7 @@
 </li>
 </ul></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Variables</h2><p>A variable is declared like a simple CSS rule, but outside of any blocks. Variable names are of the form <code>@name</code>.</p><h3>LESS:</h3><pre><code>@nice-blue: #5B83AD;
+<section class="slide"><div><h2>Writing LESS: Variables</h2><p>A variable is declared like a simple CSS rule, but outside of any blocks. Variable names are of the form <code>@name</code>.</p><h3>LESS:</h3><pre><code class="less">@nice-blue: #5B83AD;
 @light-blue: @nice-blue + #111;
 
 #header {
@@ -146,7 +146,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>LESS:</h3><pre><code>.bordered {
+<section class="slide"><div><h2>Writing LESS: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>LESS:</h3><pre><code class="less">.bordered {
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
 }
@@ -175,7 +175,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: More Mixins</h2><p>Adding parentheses after a mixin name keeps the mixin from being declared as its own class, (e.g. <code>.mixin-name()</code>).</p><h3>LESS:</h3><pre><code>.bordered() {
+<section class="slide"><div><h2>Writing LESS: More Mixins</h2><p>Adding parentheses after a mixin name keeps the mixin from being declared as its own class, (e.g. <code>.mixin-name()</code>).</p><h3>LESS:</h3><pre><code class="less">.bordered() {
     border-top: dotted 1px black;
     border-bottom: solid 2px black;
 }
@@ -200,7 +200,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>LESS:</h3><pre><code>.border-radius(@radius: 5px) { 
+<section class="slide"><div><h2>Writing LESS: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>LESS:</h3><pre><code class="less">.border-radius(@radius: 5px) { 
     -webkit-border-radius: @radius; 
        -moz-border-radius: @radius; 
             border-radius: @radius; 
@@ -224,7 +224,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>LESS:</h3><pre><code>#header {
+<section class="slide"><div><h2>Writing LESS: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>LESS:</h3><pre><code class="less">#header {
     color: black;
     .navigation {
         font-size: 12px;
@@ -246,7 +246,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>LESS:</h3><pre><code>.clearfix {
+<section class="slide"><div><h2>Writing LESS: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>LESS:</h3><pre><code class="less">.clearfix {
     display: block;
     zoom: 1;
     &amp;:after {
@@ -288,7 +288,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>LESS:</h3><pre><code>.screencolor{ 
+<section class="slide"><div><h2>Writing LESS: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>LESS:</h3><pre><code class="less">.screencolor{ 
     @media screen { 
         color: green;
         @media (min-width:768px) { 
@@ -318,7 +318,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Operations</h2><p>LESS has support for math-like operations.</p><h3>LESS:</h3><pre><code>@num-grid-columns: 12;
+<section class="slide"><div><h2>Writing LESS: Operations</h2><p>LESS has support for math-like operations.</p><h3>LESS:</h3><pre><code class="less">@num-grid-columns: 12;
 @grid-column-gutter: 30px;
 
 .row {
@@ -380,7 +380,7 @@
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.</p><h3>LESS:</h3><pre><code>.blue-button {     
+<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Less has plenty of functions (You've already seen a few!) that will do all kinds of cool things with numbers and colors.</p><h3>LESS:</h3><pre><code class="less">.blue-button {     
     @blue-color: #005288;     
     color: white;     
     background-color: @blue-color;     
@@ -430,7 +430,7 @@
 </li>
 </ul></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Variables</h2><p>Variable names are of the form <code>$name</code>.</p><h3>Sass:</h3><pre><code>$nice-blue: #5B83AD;
+<section class="slide"><div><h2>Writing Sass: Variables</h2><p>Variable names are of the form <code>$name</code>.</p><h3>Sass:</h3><pre><code class="scss">$nice-blue: #5B83AD;
 $light-blue: $nice-blue + #111;
 
 #header {
@@ -441,7 +441,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>Sass:</h3><pre><code>@mixin bordered() {
+<section class="slide"><div><h2>Writing Sass: Mixins</h2><p>To include a class as a mixin, simply include it in the styles.</p><h3>Sass:</h3><pre><code class="scss">@mixin bordered() {
     border-top: dotted 1px black;
     border-bottom: solid 2px black; 
 }
@@ -466,7 +466,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>Sass:</h3><pre><code>.border-radius($radius: 5px) { 
+<section class="slide"><div><h2>Writing Sass: Mixins with Parameters</h2><p>Mixins can accept parameters. Defaults can also be specified to allow the parameter to be omitted.</p><h3>Sass:</h3><pre><code class="scss">.border-radius($radius: 5px) { 
     -webkit-border-radius: $radius; 
        -moz-border-radius: $radius; 
             border-radius: $radius; 
@@ -490,7 +490,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>Sass:</h3><pre><code>#header {
+<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><p>Rules can be nested, with or without operators (<code>&gt;</code>, <code>+</code>, etc).</p><h3>Sass:</h3><pre><code class="scss">#header {
     color: black;
     .navigation {
         font-size: 12px;
@@ -512,7 +512,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>Sass:</h3><pre><code>.clearfix {
+<section class="slide"><div><h2>Writing Sass: Nesting with <code>&amp;</code></h2><p>The ampersand (<code>&amp;</code>) can be used to refer to the current selector parent.</p><h3>Sass:</h3><pre><code class="scss">.clearfix {
     display: block;
     zoom: 1;
     &amp;:after {
@@ -554,7 +554,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>Sass:</h3><pre><code>.screencolor{ 
+<section class="slide"><div><h2>Writing Sass: Nesting Media Queries</h2><p>Media queries may be nested.</p><h3>Sass:</h3><pre><code class="scss">.screencolor{ 
     @media screen { 
         color: green;
         @media (min-width:768px) { 
@@ -584,7 +584,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><pre><code>body {
+<section class="slide"><div><h2>Writing Sass: Nesting Rules</h2><pre><code class="scss">body {
     background: {
         color: #ccc;
         image: url(../img/bg.png);
@@ -638,7 +638,7 @@ $light-blue: $nice-blue + #111;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: <code>@extend</code> </h2><p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p><p><strong>Warning:</strong> This can quickly bloat your CSS.</p><h3>Sass:</h3><pre><code>.no-formattribute body {     
+<section class="slide"><div><h2>Writing Sass: <code>@extend</code> </h2><p>Use <code>@extend [selector]</code> to extend the rules of one selector to another. Deep search even in nested selectors.</p><p><strong>Warning:</strong> This can quickly bloat your CSS.</p><h3>Sass:</h3><pre><code class="scss">.no-formattribute body {     
     background-color: red;
 }
 
@@ -654,7 +654,7 @@ iframe {
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing Sass: Operations</h2><p>Sass has support for math-like operations.</p><h3>Sass:</h3><pre><code>$num-grid-columns: 12;
+<section class="slide"><div><h2>Writing Sass: Operations</h2><p>Sass has support for math-like operations.</p><h3>Sass:</h3><pre><code class="scss">$num-grid-columns: 12;
 $grid-column-gutter: 30px;
 
 .row {
@@ -708,7 +708,7 @@ $grid-column-gutter: 30px;
 }
 </code></pre></div></section>
 
-<section class="slide"><div><h2>Writing LESS: Functions</h2><p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p><h3>Sass:</h3><pre><code>.blue-button {     
+<section class="slide"><div><h2>Writing Sass: Functions</h2><p>Sass has plenty of functions, and many of them are similar or identical to their LESS counterparts</p><h3>Sass:</h3><pre><code class="scss">.blue-button {     
     $blue-color: #005288;     
     color: white;     
     background-color: $blue-color;     
@@ -794,7 +794,7 @@ $grid-column-gutter: 30px;
             { src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
             { src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
             { src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
             { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
             { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
